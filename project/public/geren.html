@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="referrer" content="never">
+		<title>推荐几个美女给你</title>
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			ul, ol {
+				list-style: none;
+			}
+			body{
+				padding-bottom: 50px;
+			}
+			.wrapper {
+				padding: 0 .3rem;
+			}
+			.list{
+				padding: 0 .2rem;
+			}
+			.item{
+				margin-top: 20px;
+			}
+			#foo2 {
+				position: fixed;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			.desc {
+			    margin: .2rem .1rem;
+			    padding: .1rem;
+			    width: 100%;
+			    box-shadow: rgb(204, 204, 204) 0px 0px 10px;
+			    border-width: 1px;
+			    border-style: solid;
+			    border-color: rgb(170, 170, 170);
+			    border-radius: 5px;
+			    text-align: center;
+			    box-sizing: border-box !important;
+			    word-wrap: break-word !important;
+			}
+			.desc span {
+			    padding: .1rem;
+			    max-width: 100%;
+			    display: block;
+			    font-weight: 700;
+			    color: rgb(62, 62, 62);
+			    box-sizing: border-box !important;
+			    word-wrap: break-word !important;
+			    font-size: .36rem;
+			}
+			.desc button {
+				display: block;
+				text-decoration: none;
+			    width: 55%;
+			    white-space: normal;
+			    border-image: initial;
+			    margin: 0 auto;
+			    padding: .2rem;
+			    font-size: .32rem;
+			    font-family: arial, helvetica, sans-serif;
+			    text-shadow: #225F87 0px 1px 0px;
+			    color: #F2F2F2;
+			    border-radius: 10px;
+			    box-shadow: #999999 2px 2px 4px;
+			    background-color: #e64e5a;
+			    text-align: center;
+			    margin-bottom: .2rem;
+			}
+		</style>
+		<body>
+		<div id="content">
+			<div class="wrapper">
+				<div class="list">
+					
+				</div>
+			</div>
+		</div>
+		<textarea id="foo2"></textarea>
+		
+		<script type="text/javascript">
+			(function (doc, win) {
+			    var docEl = doc.documentElement,
+			        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			        recalc = function () {
+			            var clientWidth = docEl.clientWidth;
+			            if (!clientWidth) return;
+			            if(clientWidth>=640){
+			                docEl.style.fontSize = '100px';
+			            }else{
+			                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+			            }
+			        };
+			
+			    if (!doc.addEventListener) return;
+			    win.addEventListener(resizeEvt, recalc, false);
+			    doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script type="text/javascript">
+
+			function getRandomArrayElements(arr, count) {
+			    var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+			    while (i-- > min) {
+			        index = Math.floor((i + 1) * Math.random());
+			        temp = shuffled[index];
+			        shuffled[index] = shuffled[i];
+			        shuffled[i] = temp;
+			    }
+			    return shuffled.slice(min);
+			}
+
+			function copy(el, num) {
+				var copy = function() {
+					var b = document.getElementById("foo2")
+					b.value = num;
+					b.select();
+					b.setSelectionRange(0, b.value.length);
+					if(document.execCommand("copy", false, null)) {}
+				};
+				el.addEventListener("click", function(){
+					copy()
+					alert("微信网页提示：\n\n1.美女微信号已成功复制\n\n2.点击确定前往微信添加美女微信");
+					window.location.replace("weixin://");
+				});
+			}
+
+		    var imgs=[
+		    	"/img/meinv/1.jpg",
+		    	"/img/meinv/2.jpg",
+		    	"/img/meinv/3.jpg",
+		    	"/img/meinv/4.jpg",
+		    	"/img/meinv/5.jpg",
+		    	"/img/meinv/6.jpg",
+		    	"/img/meinv/7.jpg",
+		    	"/img/meinv/8.jpg",
+		    	"/img/meinv/9.jpg"
+		    ];
+
+			var wechat_ids =[
+				"gwvip08",
+				"jb-15294977091",
+				"meitao201813",
+				"gwvip17",
+				"meitao201815",
+				"wqqh70576",
+				"gwvip14",
+				"pphao88",
+				"ff-15936081347",
+				"gwvip33",
+				"gwvip32",
+				"gwvip40",
+				"gwvip42",
+				"gwvip30",
+				"qq456446",
+				"ai1824947",
+				"yn99sbw",
+				"gwvip16",
+				"cf-18736232047",
+				"gwvip03",
+				"wtd461",
+				"gwvip28",
+				"gwvip22",
+				"xiaonvhaihhh",
+				"fn-18339422730",
+				"gwvip19",
+				"gwvip35",
+				"tys043",
+				"gttx824489",
+				"gwvip37",
+				"yn99sbw",
+				"ZYN2542349693",
+				"yay19990318",
+				"sxj198242",
+				"qq2799824596"
+			];
+
+			var img_selects = getRandomArrayElements(imgs,3)
+			var ids = getRandomArrayElements(wechat_ids,3)
+
+			for (var i = 0; i < 3; i++) {
+				$(".list").append('<div class="item"><img id="img" src="'+
+					img_selects[i]+'" style="width: 100%" /><div class="desc"><span style="color: red">添加微信：'+
+					ids[i]+' 看更多漂亮小姐姐</span><button class="copy_click">点击复制美女微信</button></div></div>')
+			}
+			var $copys = $(".copy_click");
+			for (var i = 0; i < 3; i++) {
+				copy($copys[i],ids[i])
+			}
+		</script>	
+	</body>
+
+</html>

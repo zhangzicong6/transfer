@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title>0元领！</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 0.12rem;
+        }
+        html {
+            font-size: 100px;
+        }
+        img {
+            border: 0;
+            display: block;
+        }
+        .wrap{
+            position: relative
+        }
+        .wrap img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img onclick="return false;" src="/img/0yuan/0yuan_0511_tuoxie.png"/>
+    </div>
+<script>
+    window.onload = function () {
+        function refresh() {
+            var width = document.documentElement.clientWidth;
+            if (width < 375) {
+                document.documentElement.style.fontSize = width / 3.75 + "px";
+            } else {
+                document.documentElement.style.fontSize = "100px";
+            }
+        }
+        refresh();
+        window.onresize = refresh;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="0">
+		<meta name="referrer" content="never">
+        <title><%= pageTitle %></title>
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-size: .16rem;
+            }
+            
+            #content {
+                display: flex;
+                flex-direction: column;
+                width: 96%;
+                position: absolute;
+                top: .2rem;
+                left: 50%;
+                margin-left: -48%;
+                overflow: hidden;
+                padding-bottom: .3rem;
+            }
+            
+            #content p {
+                background: transparent !important;
+            }
+            
+            .title {
+                font-size: .28rem;
+                margin-bottom: .2rem;
+            }
+            
+            .avator {
+                width: 100%;
+                margin-top: .2rem;
+            }
+            
+            .author-wrap {
+                width: 96%;
+                margin: 0 auto;
+            }
+            
+            .author {
+                font-size: .16rem;
+                color: cornflowerblue;
+            }
+            
+            .date {
+                font-size: .12rem;
+                color: #7E7E7E;
+                margin-left: .1rem;
+            }
+            
+            .p-content {
+                padding: .2rem .1rem;
+                border-radius: .1rem;
+                margin: .2rem .08rem;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.5)
+            }
+            
+            .p-content p {
+                line-height: 2;
+            }
+            
+            .mask {
+                line-height: 2;
+                /*padding: .3rem 0;*/
+                text-align: left;
+                font-size: 18px;
+                -webkit-filter: blur(3px);
+                filter: blur(3px);
+                color: #525252;
+                text-indent: 2em;
+            }
+            
+            .more {
+                font-size: .18rem;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+            .more span {
+                display: inline-block;
+                font-size: .2rem;
+                padding: 0 .1rem;
+                text-indent: 0;
+                animation: myfirst 1s infinite;
+                -moz-animation: myfirst 1s infinite;
+                /* Firefox */
+                -webkit-animation: myfirst 1s infinite;
+                /* Safari 和 Chrome */
+                -o-animation: myfirst 1s infinite;
+                /* Opera */
+            }
+			.font-big {
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.footer-message-nourl {
+				padding: 20px 10px 40px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.footer-message-nourl p {
+				font-size: 20px;
+				font-weight: bold;
+				margin-top: 6px;
+				line-height: 29px;
+				text-align: center;
+			}
+			
+			.btn-color {
+				color: #3c76ff;
+			}
+			
+			.chapter p {
+				text-indent: 2em;
+			}
+			
+			
+			.font-red {
+				color: red;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.line {
+				width: 45px;
+				border: 2px solid #3c76ff;
+				display: inline-flex;
+				vertical-align: middle;
+			}
+			
+			.right-line {
+				margin-left: 5px;
+			}
+			
+			.left-line {
+				margin-right: 5px;
+			}
+			
+			#foo1 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			
+			.copy-btn {
+				display: inline-block;
+				;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				padding: 0 5px;
+				color: #f00;
+				font-size: 18px;
+				background: #eee;
+				border: 1px solid #000;
+				border-radius: 5px;
+			}
+            
+            .tips-con {
+                margin: .2rem .1rem;
+                padding: .1rem;
+                font-size: .16rem;
+                border: 1px dashed rgb(216, 76, 71);
+            }
+            
+            .tips {
+                margin-bottom: .1rem;
+            }
+            
+            .btn {
+                text-decoration: none;
+                width: 90%;
+                white-space: normal;
+                border-image: initial;
+                margin: 0 auto;
+                padding: .1rem;
+                font-size: .18rem;
+                font-weight: bold;
+                line-height: .25rem;
+                font-family: arial, helvetica, sans-serif;
+                text-shadow: #225F87 0px 1px 0px;
+                color: #F2F2F2;
+                border-radius: 4px;
+                box-shadow: #999999 2px 2px 4px;
+                background-color: #e64e5a;
+                text-align: center;
+            }
+            
+            .title-text span {
+                display: block;
+                position: relative;
+                color: #8c8c8c;
+                text-align: center;
+                font-size: .18rem;
+            }
+            
+            .title-text span:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                background: #8c8c8c;
+                width: 35%;
+                height: 1px;
+            }
+            
+            .title-text span:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                background: #8c8c8c;
+                width: 35%;
+                height: 1px;
+            }
+            
+            .icon_praise_gray {
+                background: transparent url(/img/tuiguang/zan.png) no-repeat 0 0;
+                width: 13px;
+                height: 13px;
+                vertical-align: middle;
+                display: inline-block;
+                -webkit-background-size: 100% auto;
+                background-size: 100% auto;
+            }
+            
+            .icon_praise_gray font {
+                margin-top: -5px;
+            }
+            
+            @keyframes myfirst {
+                0% {
+                    color: rgb(112, 207, 204);
+                }
+                25% {
+                    color: rgb(0, 229, 120);
+                }
+                50% {
+                    color: rgb(1961, 33, 44);
+                }
+                100% {
+                    color: rgb(15, 76, 122);
+                }
+            }
+            
+            @-moz-keyframes myfirst
+            /* Firefox */
+            
+            {
+                0% {
+                    color: rgb(112, 207, 204);
+                }
+                25% {
+                    color: rgb(0, 229, 120);
+                }
+                50% {
+                    color: rgb(1961, 33, 44);
+                }
+                100% {
+                    color: rgb(15, 76, 122);
+                }
+            }
+            
+            @-webkit-keyframes myfirst
+            /* Safari 和 Chrome */
+            
+            {
+                0% {
+                    color: rgb(112, 207, 204);
+                }
+                25% {
+                    color: rgb(0, 229, 120);
+                }
+                50% {
+                    color: rgb(1961, 33, 44);
+                }
+                100% {
+                    color: rgb(15, 76, 122);
+                }
+            }
+            
+            @-o-keyframes myfirst
+            /* Opera */
+            
+            {
+                0% {
+                    color: rgb(112, 207, 204);
+                }
+                25% {
+                    color: rgb(0, 229, 120);
+                }
+                50% {
+                    color: rgb(1961, 33, 44);
+                }
+                100% {
+                    color: rgb(15, 76, 122);
+                }
+            }
+			
+			.img-container {
+				display: flex;
+				;
+				flex-direction: column;
+				justify-content: center;
+			}
+			
+			.img-container img {
+				width: 100%;
+				border: 0;
+			}
+
+			a {
+				text-decoration: none;
+			}
+			
+			.container {
+				padding: 0;
+				max-width: 740px;
+				min-width: 320px;
+				margin: 0 auto;
+			}
+			
+			.article-title {
+				padding: 19px 15px 2px;
+				font-size: 24px;
+				line-height: 30px;
+			}
+			
+			.article-title p {
+				white-space: pre-wrap;
+				word-break: break-all;
+			}
+			
+			.article-info {
+				padding: 10px 14px;
+				font-size: 14px;
+			}
+			
+			.article-info .article-date {
+				float: left;
+			}
+			
+			.article-info .article-pviews {
+				float: right;
+			}
+			
+			.ooxx {
+				display: block;
+				margin: 23px auto 0;
+				width: 100%;
+			}
+			
+			.chapter {
+				padding: 10px 10px 0;
+				margin: 0 auto;
+				font-size: 16px;
+			}
+			
+			.chapter p {
+				margin-top: 25px;
+				line-height: 29px;
+			}
+			
+			.jump-to-wx {
+				width: 100%;
+				max-width: 740px;
+				min-width: 320px;
+				bottom: 0;
+				position: fixed;
+				z-index: 10;
+			}
+			
+			.footer-message {
+				padding: 0 10px 10px;
+				margin: 0 auto;
+				font-size: 16px;
+			}
+			
+			.footer-message p {
+				margin-top: 6px;
+				line-height: 29px;
+				color: rgb(238, 17, 17);
+			}
+			
+			.footer-message-nourl {
+				padding: 20px 10px 40px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.footer-message-nourl p {
+				margin-top: 6px;
+				line-height: 29px;
+				text-align: center;
+			}
+			
+			.next-btn {
+				text-align: center;
+				color: white;
+				font-size: 18px;
+				margin: 10px auto;
+				background-color: #3c76ff;
+				border: 1px solid #3c76ff;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				height: 42px;
+				width: 95%;
+				line-height: 42px;
+			}
+			
+			.jump-info {
+				padding: 10px 10px 20px;
+				margin: 0 auto;
+				font-size: 16px;
+			}
+			
+			.jump-info p {
+				line-height: 31px;
+				letter-spacing: 1px;
+			}
+			/*******/
+			
+			.outmargin {
+				border-bottom: .08rem solid #f5f5f5
+			}
+			
+			.outmargin {
+				background: #fff
+			}
+			
+			.mainContent>:first-child {
+				margin-top: .125rem
+			}
+			
+			.mainContent img {
+				max-width: 100%
+			}
+			
+			.commentTitle span {
+				display: inline-block;
+				font-size: .16rem
+			}
+			
+			.commentTitle span {
+				margin: .2rem 0 .05rem
+			}
+			
+			body,
+			h1,
+			h2,
+			h3,
+			p,
+			div,
+			ul {
+				margin: 0;
+				padding: 0
+			}
+			
+			body {
+				line-height: 1;
+				text-align: left;
+				-webkit-text-size-adjust: none;
+				max-width: 100%;
+				overflow-x: hidden;
+				vertical-align: top;
+				font-family: Arial, Helvetica, sans-serif
+			}
+			
+			ul {
+				list-style: none
+			}
+			
+			a {
+				text-decoration: none;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+			}
+			
+			html {
+				font-size: 100px;
+				line-height: 100px
+			}
+			
+			@media screen and (max-width: 360px) {
+				html {
+					font-size: 90px;
+					line-height: 90px
+				}
+			}
+			
+			._3Lg9_aL1ZIf7Ry_XN0wdHc div {
+				font-size: 0
+			}
+			
+			._1T6TbV3IOYsTyKUDLU3h5K {
+				padding-left: .17rem
+			}
+			
+			._1T6TbV3IOYsTyKUDLU3h5K span {
+				font-size: .16rem;
+				margin: .2rem 0 .06rem;
+				display: inline-block
+			}
+			
+			._3Lg9_aL1ZIf7Ry_XN0wdHc li {
+				padding: 0 .17rem
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K {
+				-webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-touch-callout: none;
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K:active {
+				background: rgba(0, 0, 0, .06)
+			}
+			
+			._3Lg9_aL1ZIf7Ry_XN0wdHc ._3WFzQS_lKvtlzIVerP0mqD {
+				display: -webkit-flex;
+				display: flex;
+				padding: .18rem 0;
+				line-height: 0;
+				position: relative
+			}
+			
+			._3Lg9_aL1ZIf7Ry_XN0wdHc ._3WFzQS_lKvtlzIVerP0mqD:before {
+				border-bottom: 1px solid #eee;
+				position: absolute;
+				content: "";
+				height: 1px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				transform: scaleY(.3)
+			}
+			
+			._3Lg9_aL1ZIf7Ry_XN0wdHc h2 {
+				font-size: .18rem;
+				font-weight: 400;
+				color: #000;
+				text-overflow: ellipsis;
+				overflow: hidden
+			}
+			
+			._10eGO7spa38to6ZfMDjOZ1 {
+				height: .12rem;
+				line-height: .12rem
+			}
+			
+			._10eGO7spa38to6ZfMDjOZ1 span {
+				font-size: .12rem
+			}
+			
+			._2haq1QXlJUDjvw8OsUG7JZ {
+				color: #3c76ff;
+				margin-right: .06rem
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K ._3WFzQS_lKvtlzIVerP0mqD {
+				-webkit-flex-direction: column;
+				flex-direction: column;
+				padding: .18rem 0 .17rem
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K .AfkfFyJW6qiLWU5gsNZtp {
+				height: 80px;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-justify-content: space-between;
+				justify-content: space-between;
+				margin: .11rem 0 .08rem
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K h2 {
+				white-space: nowrap;
+				height: .18rem;
+				line-height: .18rem
+			}
+			
+			._2IegMdWvyvuhctjz_xSu1K ._3p6NZz5KhqkE_GsowgTvsE {
+				width: 32.1%;
+				height: 100%
+			}
+			
+			._1FA6Djog2wSO1FSL_nc0v0 h2 {
+				font-size: .13rem;
+				height: 13px;
+				color: #999;
+				margin: 0 0 6px;
+				font-weight: 400
+			}
+			
+			._1FA6Djog2wSO1FSL_nc0v0 p {
+				font-size: .12rem;
+				line-height: .18rem;
+				color: #999;
+				margin: 0;
+				padding: 0;
+				-webkit-tap-highlight-color: transparent
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn div {
+				border: 1px solid #38f;
+				border-radius: .02rem;
+				height: .42rem;
+				line-height: .42rem;
+				font-size: .18rem;
+				color: #38f;
+				text-align: center
+			}
+			
+			.prompt span {
+				width: 100%;
+				display: inline-block;
+				text-align: center;
+				font: normal 16px/50px "Microsoft Yahei";
+				margin-top: 20px;
+			}
+			
+			.prompt span {
+				width: 100%;
+				display: inline-block;
+				text-align: center;
+				font: normal 16px/50px "Microsoft Yahei";
+				margin-top: 20px;
+			}
+			
+			._1FA6Djog2wSO1FSL_nc0v0 h2 {
+				font-size: .13rem;
+				height: 13px;
+				color: #999;
+				margin: 0 0 6px;
+				font-weight: 400
+			}
+			
+			._1FA6Djog2wSO1FSL_nc0v0 p {
+				font-size: .12rem;
+				line-height: .18rem;
+				color: #999;
+				margin: 0;
+				padding: 0;
+				-webkit-tap-highlight-color: transparent
+			}
+			
+			.commentTitle span {
+				display: inline-block;
+				font-size: .16rem
+			}
+			
+			.commentTitle {
+				padding-left: .17rem;
+				background-color: #fff
+			}
+			
+			.commentTitle span {
+				margin: .2rem 0 .05rem
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn:before {
+				-webkit-transform-origin: 0 0;
+				transform-origin: 0 0
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn {
+				position: relative;
+				overflow: hidden
+			}
+			
+			@media (-webkit-device-pixel-ratio: 1.5) {
+				.commentEmbed .commentEmbed-backHomeBtn:before {
+					width: 150%;
+					height: 150%;
+					-webkit-transform: scale(0.66667);
+					transform: scale(0.66667)
+				}
+			}
+			
+			@media (-webkit-min-device-pixel-ratio: 1.5),
+			(min-device-pixel-ratio:1.5),
+			(min-resolution:144dpi),
+			(min-resolution:1.5dppx) {
+				.commentEmbed .commentEmbed-backHomeBtn:before {
+					width: 200%;
+					height: 200%;
+					-webkit-transform: scale(0.5);
+					transform: scale(0.5)
+				}
+			}
+			
+			@media (-webkit-device-pixel-ratio: 3) {
+				.commentEmbed .commentEmbed-backHomeBtn:before {
+					width: 300%;
+					height: 300%;
+					-webkit-transform: scale(0.33333);
+					transform: scale(0.33333)
+				}
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn:before {
+				content: '';
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				height: 1px;
+				pointer-events: none
+			}
+			
+			.commentEmbed {
+				background-color: #fff
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn {
+				margin-top: .16rem;
+				padding: .2rem .17rem
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn:before {
+				height: 1px;
+				background-color: #e6e6e6
+			}
+			
+			.commentEmbed .commentEmbed-backHomeBtn div {
+				border: 1px solid #38f;
+				border-radius: .02rem;
+				height: .42rem;
+				line-height: .42rem;
+				font-size: .18rem;
+				color: #38f;
+				text-align: center
+			}
+			
+			.division-line {
+				border-top: .08rem solid #f5f5f5;
+			}
+			
+			.font-red {
+				color: red;
+			}
+			
+			.font-big {
+				font-size: 20px;
+				font-weight: bold;
+			}
+			
+			.line {
+				width: 45px;
+				border: 2px solid #3c76ff;
+				display: inline-flex;
+				vertical-align: middle;
+			}
+			
+			.right-line {
+				margin-left: 5px;
+			}
+			
+			.left-line {
+				margin-right: 5px;
+			}
+			
+			.foot-box {
+				width: 100%;
+				height: 80px;
+			}
+			
+			.btn-color {
+				color: #3c76ff;
+			}
+			
+			.chapter p {
+				text-indent: 2em;
+			}
+			
+			#foo {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			
+			#foo1 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			
+			.copy-btn {
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				padding: 0 5px;
+				color: #f00;
+				font-size: 18px;
+				background: #eee;
+				border: 1px solid #000;
+				border-radius: 5px;
+			}
+			
+			
+			.wrapper {
+				padding: 0 .3rem;
+			}
+			.wrapper ul, .wrapper ul li {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			
+			.wrapper ul li img {
+				width: 100%;
+				padding: .1rem 0;
+			}
+			#foo2 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+			.description {
+			    margin: .2rem .1rem;
+			    padding: .1rem;
+			    width: 100%;
+			    box-shadow: rgb(204, 204, 204) 0px 0px 10px;
+			    border-width: 1px;
+			    border-style: solid;
+			    border-color: rgb(170, 170, 170);
+			    border-radius: 5px;
+			    text-align: center;
+			    box-sizing: border-box !important;
+			    word-wrap: break-word !important;
+			}
+			.description span {
+			    padding: .1rem;
+			    max-width: 100%;
+			    display: block;
+			    font-weight: 700;
+			    color: rgb(62, 62, 62);
+			    box-sizing: border-box !important;
+			    word-wrap: break-word !important;
+			    font-size: .36rem;
+			}
+			.description button {
+				display: block;
+				text-decoration: none;
+			    width: 55%;
+			    white-space: normal;
+			    border-image: initial;
+			    margin: 0 auto;
+			    padding: .2rem;
+			    font-size: .32rem;
+			    font-family: arial, helvetica, sans-serif;
+			    text-shadow: #225F87 0px 1px 0px;
+			    color: #F2F2F2;
+			    border-radius: 10px;
+			    box-shadow: #999999 2px 2px 4px;
+			    background-color: #e64e5a;
+			    text-align: center;
+			    margin-bottom: .2rem;
+			}
+			#foo {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+		</style>
+
+    </head>
+
+    <body>
+        <div id="content">
+		    <textarea id="foo"></textarea>
+            <div class="author-wrap">
+                <h2 class="title"><%= articleTit %></h2>
+                <span class="author"> <%= name %> </span>
+                <span class="date"><%= desc %></span>
+                <p style="text-align: center;">
+                    <img class="avator" src="<%= picurl %>" />
+                </p>
+            </div>
+            <div class="p-content">
+                <%- capter1 %>
+                <p class="mask">“刘洋，餐厅布置好了吗？你再去看一遍，不准出现一丁点儿的纰漏，不然的话我扣你工资……”</p>
+                <p class="more">更多<span>高潮内容</span>请点击下一章</p>
+            </div>
+            <a id="btn-copy" href="<%= linkUrl %>" class="btn">下一章 &nbsp;&nbsp;&nbsp;( 将在微信中打开 )</a>
+            <div class="tips-con">
+                <p class="tips">如跳转失败请按下列方式关注公众号：</p>
+                <p class="tips">打开微信点击右上角 “+” → “添加朋友” → “公众号” → 输入“<%= name %>” → 关注公众号</p>
+            </div>
+            <div>
+                <div class="title-text"><span style="font-size: 18px;">精选留言</span></div>
+                <div style="margin-top: 18px;">
+                    <div>
+                        <div style="width:10%;float:left"> <img src="/img/tuiguang/user1.jpg" style="width:40px"></div>
+                        <div style="width:85%;float:right"><span style="color:#8c8c8c;margin-left: 8px;">赵天</span><span class="icon_praise_gray" style="float:right;margin-right: 50px;font-size: 12px;color:#8c8c8c"><font style="margin-left: 15px;width:100px;display: inline-block;">14558</font></span>
+                            <div style="padding:8px;">看了，好刺激，提醒一个人看别让老婆看到！</div>
+                            <span style="padding:10px;color:#8c8c8c;font-size: 12px;">17小时前</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top: 18px;">
+                    <div>
+                        <div style="width:10%;float:left"> <img src="/img/tuiguang/user2.jpg" style="width:40px"></div>
+                        <div style="width:85%;float:right"><span style="color:#8c8c8c;margin-left: 8px;">我是猛男</span><span class="icon_praise_gray" style="float:right;margin-right: 50px;font-size: 12px;color:#8c8c8c"><font style="margin-left: 15px;width:100px;display: inline-block;">10352</font></span>
+                            <div style="padding:8px;">受不了，我刚刚也看了，要去找妹子下火了...</div>
+                            <span style="padding:10px;color:#8c8c8c;font-size: 12px;">15小时前</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top: 18px;">
+                    <div>
+                        <div style="width:10%;float:left"> <img src="/img/tuiguang/user3.jpg" style="width:40px"></div>
+                        <div style="width:85%;float:right"><span style="color:#8c8c8c;margin-left: 8px;">来呀，快活呀</span><span class="icon_praise_gray" style="float:right;margin-right: 50px;font-size: 12px;color:#8c8c8c"><font style="margin-left: 15px;width:100px;display: inline-block;">9988</font></span>
+                            <div style="padding:8px;">精彩，精彩，作者这是真实经历吧，我去看了感觉写的很好啊</div>
+                            <span style="padding:10px;color:#8c8c8c;font-size: 12px;">14小时前</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top: 18px;">
+                    <div>
+                        <div style="width:10%;float:left"> <img src="/img/tuiguang/user4.jpg" style="width:40px"></div>
+                        <div style="width:85%;float:right"><span style="color:#8c8c8c;margin-left: 8px;">马上有钱</span><span class="icon_praise_gray" style="float:right;margin-right: 50px;font-size: 12px;color:#8c8c8c"><font style="margin-left: 15px;width:100px;display: inline-block;">8689</font></span>
+                            <div style="padding:8px;">我要是有个班主任也这样就爽了，后面太特么好看了</div>
+                            <span style="padding:10px;color:#8c8c8c;font-size: 12px;">9小时前</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top: 18px;">
+                    <div>
+                        <div style="width:10%;float:left"> <img src="/img/tuiguang/user5.jpg" style="width:40px"></div>
+                        <div style="width:85%;float:right"><span style="color:#8c8c8c;margin-left: 8px;">就这么feel倍爽</span><span class="icon_praise_gray" style="float:right;margin-right: 50px;font-size: 12px;color:#8c8c8c"><font style="margin-left: 15px;width:100px;display: inline-block;">7666</font></span>
+                            <div style="padding:8px;">一个字，看完保证爽，已经试过了！</div>
+                            <span style="padding:10px;color:#8c8c8c;font-size: 12px;">4小时前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- tokenCodes %>
+        <div style="display:none" data-author="mingxingshuo">
+        	<%- statisticsUrl1 %>
+        </div>
+       
+        </script> 
+		<script>
+            function refresh() {
+                var width = document.documentElement.clientWidth;
+                if(width < 375) {
+                    document.documentElement.style.fontSize = width / 3.75 + "px";
+                } else {
+                    document.documentElement.style.fontSize = "100px";
+                }
+            }
+            refresh();
+            window.onresize = refresh;
+			$.ajax({
+                url: '/tuiguang/token',
+                methos: 'get',
+                success: function(res) {
+                    var arr = res.data[0].tokenArr.split(',');
+                    function bind_copy() {
+                        var btn = document.getElementById('btn-copy');
+                        var copy = function() {
+                            var b = document.getElementById('foo');
+                            var index = Math.floor((Math.random()*arr.length));
+                            b.value = arr[index];
+                            b.select();
+                            b.setSelectionRange(0, b.value.length);
+                            if(document.execCommand('copy', false, null)) {
+                                // b.remove()
+                            }
+                        };
+                        btn.addEventListener('click', function(){
+                            copy()
+                        });
+                    }
+                    bind_copy()
+                }
+            })
+        </script>
+    </body>
+
+</html>

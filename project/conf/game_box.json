@@ -1,0 +1,45 @@
+{
+	"shenhe":"1.0.4",
+	"title":{
+		"shenhe":"一起玩GoGoGo",
+		"common":"一起玩GoGoGo"
+	},
+	"banners":[
+		{
+			"appid":"wx6ee495cc895ca028",
+			"appname":"呆呆打僵尸",
+			"img":"http://tiexie0.wang/img/program/banner/banner2.jpg",
+			"extra":{},
+			"path":"page/login/login?channel=mxsxcx"
+		}
+	],
+	"list":[
+		{
+			"appid":"wx79ade44c39cefc7f",
+			"appname":"传奇来了",
+			"intro":"是兄弟 战沙城 玩传奇 送元宝 复古1.76 等你来战",
+			"img":"http://tiexie0.wang/img/program/avator/avator1.png",
+			"extra":{},
+			"play_numbers":"30万",
+			"path":"?chid=1970&subchid=ncqll21"
+		},
+		{
+			"appid":"wxc021569276c9f0ec",
+			"appname":"挖矿小队",
+			"intro":"黄金来我这挖，一挖一麻袋",
+			"img":"http://tiexie0.wang/img/program/avator/avator3.png",
+			"extra":{},
+			"play_numbers":"25万",
+			"path":"pages/index/index?ch=yqw"
+		},
+		{
+			"appid":"wxfb16606370abe913",
+			"appname":"放置王者",
+			"intro":"Q版的王者，与我共逐王者之路！",
+			"img":"http://tiexie0.wang/img/program/avator/avator4.png",
+			"extra":{},
+			"play_numbers":"28万",
+			"path":"?channel=fzwz22"
+		}
+	]
+}

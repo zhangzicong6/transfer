@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title>0元限时领！</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 0.12rem;
+        }
+        html {
+            font-size: 100px;
+            overflow: hidden;
+        }
+        img {
+            border: 0;
+            display: block;
+        }
+        .wrap img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>二维码</h3>
+        <p>由于版权问题，请关注后继续阅读</p>
+        <div id="content"></div>
+        <h3>长按上图，识别二维码关注</h3>
+    </div>
+<script>
+      function hrefs() {
+        window.history.pushState('forward', null, location.pathname + location.search);
+    }
+
+    if(window.history && window.history.pushState) {
+        window.onpopstate = async function() {
+            location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU0MDg4ODkzNg==&scene=126#wechat_redirect'
+        }
+    }
+
+    hrefs()
+</script>
+</body>
+</html>

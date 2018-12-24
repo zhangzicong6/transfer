@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0元领！包邮到家</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+            font-size: 0.12rem;
+            color: #fff;
+        }
+        html {
+            font-size: 100px;
+        }
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none;
+        }
+        img {
+            border: 0;
+        }
+        input,
+        textarea {
+            outline: none;
+            border: 0;
+            color: #000;
+        }
+        .wrap{
+            position: relative
+        }
+        .wrap img{
+            width:100%;
+        }
+        .wrap .btn{
+            width:1.5rem;
+            height:0.5rem;
+            background:transparent;
+            position: absolute;
+            right:0.4rem;
+            top:1rem;
+            z-index:999;
+            
+        }
+       
+        #foo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    </style>
+    <script type="text/javascript" src="http://interaction.bayimob.com/static/hdggstatistics.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <img src="/img/good/bg<%=index%>.png" onclick="return false"/>
+        <div class="btn"></div>
+        
+        <textarea id="foo"></textarea>
+    </div>
+<script type="text/javascript" src="/js/zepto.min.js"></script>
+<script>
+    window.onload = function () {
+        var btn = document.getElementsByClassName('btn')[0]
+        var text = "我哦哦哦哦"
+        $.ajax({
+          type: 'GET',
+          url: '/get_code?num=<%=index%>',
+          dataType: 'json',
+          success: function(data) {
+            text = data.code;
+          }
+        });
+
+        var copy = function () {
+            var b = document.getElementById('foo')
+            b.value = text;
+            b.select();
+            b.setSelectionRange(0, b.value.length);
+            if (document.execCommand('copy', false, null)) {
+                b.remove()
+            }
+        };
+        btn.onclick=function(){
+            copy()
+            _ai_analysis(['trackEvent','taokouling', 'copy', 'click']);
+            alert("复制成功");
+        }
+        function refresh() {
+            var width = document.documentElement.clientWidth;
+            if (width < 375) {
+                document.documentElement.style.fontSize = width / 3.75 + "px";
+            } else {
+                document.documentElement.style.fontSize = "100px";
+            }
+        }
+        refresh();
+        window.onresize = refresh;
+    }
+    
+    
+    
+    </script>
+</body>
+</html>

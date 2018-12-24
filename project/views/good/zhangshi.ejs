@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0元领！包邮到家</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+            font-size: 0.12rem;
+            color: #fff;
+        }
+        html {
+            font-size: 100px;
+        }
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none;
+        }
+        img {
+            border: 0;
+        }
+        input,
+        textarea {
+            outline: none;
+            border: 0;
+            color: #000;
+        }
+        .wrap{
+            position: relative
+        }
+        .wrap img{
+            width:100%;
+        }
+        
+    </style>
+    <script type="text/javascript" src="http://interaction.bayimob.com/static/hdggstatistics.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <img src="/img/zhangshi/bg<%=index%>.png" onclick="return false" />
+    </div>
+<script type="text/javascript" src="/js/zepto.min.js"></script>
+<script type="text/javascript" src="/js/touch.js"></script>
+<script>
+    
+    window.onload = function () {
+        function refresh() {
+            var width = document.documentElement.clientWidth;
+            if (width < 375) {
+                document.documentElement.style.fontSize = width / 3.75 + "px";
+            } else {
+                document.documentElement.style.fontSize = "100px";
+            }
+        }
+        refresh();
+        window.onresize = refresh;
+        $('.wrap img').on('longTap',function(){
+             _ai_analysis(['trackEvent','erweima', 'shibie', 'longPress'])
+        });
+        
+    }
+    
+    
+    
+    </script>
+</body>
+</html>
