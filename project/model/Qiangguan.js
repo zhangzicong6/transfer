@@ -6,7 +6,9 @@ var db = mongoose.createConnection(connect_url);
 var QiangguanSchema = new Schema({
   id:Number,
   jumpLink: String,
-  wechatId: String
+  wechatId: String,
+  baseStr : String,
+  strLink : String
 });
 
 var QiangguanModel = db.model('Qiangguan', QiangguanSchema);
