@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var transfer = require('./routes/transfer');
+var chat = require('./routes/chat');
 var novelTransfer = require('./routes/novelTransfer');
 var index = require('./routes/index');
 
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/transfer',transfer);
+app.use('/chat',chat);
 app.use('/novel_transfer',novelTransfer);
 app.use('/',index);
 
