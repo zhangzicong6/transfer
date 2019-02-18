@@ -4,7 +4,7 @@ var QiangguanModel = require('../model/Qiangguan.js');
 var mem = require('../util/mem.js')
 
 router.get('/:id', function (req, res, next) {
-    var id = req.params.id;
+    var id = parseInt(req.params.id);
     mem.get('wechat_sub_' + id).then(function (value) {
         if(value){
             value = JSON.parse(value)
