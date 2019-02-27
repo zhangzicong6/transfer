@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/transfer',transfer);
-app.use('/chat',chat);
+app.use('/tchat',chat);
 app.use('/novel_transfer',novelTransfer);
 app.use('/',index);
 
