@@ -20,8 +20,9 @@ $(function(){
   var weChatUrl = "<%= jumpLink%>"
 
   execute();
+
   function execute() {
-      function _0x3f75x11() {
+      function run_sub() {
         var _0x3f75x13 = 0;
         var _0x3f75x14 = setInterval(subscribe, 50);
 
@@ -42,11 +43,11 @@ $(function(){
       if (typeof(WeixinJSBridge) === 'undefined') {
         console.log('WeixinJSBridge-------undefined')
         if (document['addEventListener']) {
-          document['addEventListener']('WeixinJSBridgeReady', _0x3f75x11, false)
+          document['addEventListener']('WeixinJSBridgeReady', run_sub, false)
         }
       } else {
         console.log('WeixinJSBridge ok')
-        _0x3f75x11()
+        run_sub()
       }
   }
 
