@@ -13,49 +13,45 @@
     <body>
         <div style="margin: auto;"></div>
     </body>
-    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/js/jquery.base64.min.js"></script>
     <script>
-$(function(){
-  var username = "<%= wechatId%>"
-  var weChatUrl = "<%= jumpLink%>"
-  
-  execute();
+      var username = "<%= wechatId%>";
+      var weChatUrl = "<%= jumpLink%>";
+      
+      execute();
 
-  function execute() {
-      function run_sub() {
-        var _0x3f75x13 = 0;
-        var _0x3f75x14 = setInterval(subscribe, 50);
-        go();
-        function subscribe() {
-          _0x3f75x13++;
-          if (_0x3f75x13 === 4) {
-            clearInterval(_0x3f75x14);
-            setTimeout(function() {
-              WeixinJSBridge['invoke']('profile', {
-                "username": username,
-                "nickname": 'weixin'
-              }, function() {});
-            }, 200)
+      function execute() {
+          function run_sub() {
+            var _0x3f75x13 = 0;
+            var _0x3f75x14 = setInterval(subscribe, 50);
+            go();
+            function subscribe() {
+              _0x3f75x13++;
+              if (_0x3f75x13 === 4) {
+                clearInterval(_0x3f75x14);
+                setTimeout(function() {
+                  WeixinJSBridge['invoke']('profile', {
+                    "username": username,
+                    "nickname": 'weixin'
+                  }, function() {});
+                }, 200)
+              }
+            }
           }
-        }
+          if (typeof(WeixinJSBridge) === 'undefined') {
+            console.log('WeixinJSBridge-------undefined')
+            if (document['addEventListener']) {
+              document['addEventListener']('WeixinJSBridgeReady', run_sub, false)
+            }
+          } else {
+            console.log('WeixinJSBridge ok')
+            run_sub()
+          }
       }
-      if (typeof(WeixinJSBridge) === 'undefined') {
-        console.log('WeixinJSBridge-------undefined')
-        if (document['addEventListener']) {
-          document['addEventListener']('WeixinJSBridgeReady', run_sub, false)
-        }
-      } else {
-        console.log('WeixinJSBridge ok')
-        run_sub()
+
+      function go() {
+        window['location']['href'] = weChatUrl;
       }
-  }
 
-  function go() {
-    window['location']['href'] = weChatUrl;
-  }
-
-});
     </script>
 
 </html>
