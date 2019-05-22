@@ -6,7 +6,13 @@ var db = mongoose.createConnection(connect_url);
 var TransferSchema = new Schema({
   id:String,
   title:String,
-  links: Array
+  links: Array,
+  back_urls : Array,
+  type : {
+  	type : Number,
+  	default : 0
+  },
+  weights : Array
 });
 
 var TransferModel = db.model('Transfer', TransferSchema);
